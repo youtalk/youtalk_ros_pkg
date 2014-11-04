@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="user_name" default="" />
+  <arg name="speaker" default="hikari" />
+
+  <node name="voicetext" pkg="voicetext" type="voicetext"
+        respawn="false" output="screen">
+    <param name="user_name" type="string" value="$(arg user_name)"/>
+    <param name="speaker" type="string" value="$(arg speaker)"/>
+  </node>
+</launch>
