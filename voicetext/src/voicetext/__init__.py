@@ -27,10 +27,12 @@ class VoiceText(object):
         :type speaker: str
         """
         if not user_name:
-            raise Exception('%s needs correct "user_name"' % self.__class__.__name__)
+            rospy.logerr('Invalid "user_name"')
+            raise Exception('Invalid "user_name"')
 
         self._auth = HTTPBasicAuth(user_name, password)
         self._data = {'speaker': speaker}
+        rospy.loginfo('Initialized')
 
     def speaker(self, speaker):
         """
@@ -41,6 +43,7 @@ class VoiceText(object):
         """
         if speaker in ['show', 'haruka', 'hikari', 'takeru']:
             self._data['speaker'] = speaker
+            rospy.loginfo('Speaker = %s' % speaker)
         else:
             rospy.logwarn('Unknown speaker: %s' % str(speaker))
 
@@ -59,6 +62,7 @@ class VoiceText(object):
             self._data['emotion'] = emotion
             if isinstance(level, int) and 1 <= level <= 2:
                 self._data['emotion_level'] = level
+                rospy.loginfo('Emotion = %s, Level = %d' % (emotion, level))
         else:
             rospy.logwarn('Unknown emotion: %s' % str(emotion))
 
@@ -77,6 +81,7 @@ class VoiceText(object):
             elif 200 < pitch:
                 pitch = 200
             self._data['pitch'] = pitch
+            rospy.loginfo('Pitch = %s' % pitch)
 
         return self
 
@@ -93,6 +98,7 @@ class VoiceText(object):
             elif 400 < speed:
                 speed = 400
             self._data['speed'] = speed
+            rospy.loginfo('Speed = %s' % speed)
 
         return self
 
@@ -108,7 +114,8 @@ class VoiceText(object):
                 volume = 50
             elif 200 < volume:
                 volume = 200
-            self._data['volume'] = volume
+            self._data['Volume'] = volume
+            rospy.loginfo('Volume = %s' % volume)
 
         return self
 
@@ -120,10 +127,11 @@ class VoiceText(object):
         :return: bytearray
         """
         self._data['text'] = text
-        rospy.logdebug('Post: %s' % str(self._data))
+        rospy.logdebug('Post = %s' % str(self._data))
         request = requests.post(self.URL, self._data, auth=self._auth)
-        rospy.logdebug('Status: %d' % request.status_code)
+        rospy.logdebug('Status = %d' % request.status_code)
         if request.status_code != requests.codes.ok:
+            rospy.logerr('Invalid status code: %d' % request.status_code)
             raise Exception('Invalid status code: %d' % request.status_code)
         return request.content
 
@@ -143,6 +151,7 @@ class VoiceText(object):
             channels=temp.getnchannels(),
             rate=temp.getframerate(),
             output=True)
+        rospy.loginfo('Text = %s' % text)
         data = temp.readframes(self.CHUNK)
         while data:
             stream.write(data)
