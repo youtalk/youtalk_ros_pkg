@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!--
   see http://wiki.ros.org/rtmros_nextage/Tutorials/Setup%20stereo%20camera for tutorial
@@ -19,7 +20,7 @@
     <param name="frame_name" type="str" value="CAMERA_HEAD_R" />
     <param name="camera_topic" type="str" value="image_raw" />
     <param name="camera_id" type="int" value="1" /> <!-- 0 = any camera; 1+: camera ID -->
-    <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/right.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
+    <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/stereo/right.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
     <param name="camera_parameters_file" type="string" value="$(find nextage_camera)/camera_conf/UI155xSE-C.ini" /> <!-- default: ~/.ros/camera_conf/<camera_name>.ini -->
 
     <param name="ext_trigger_mode" type="bool" value="False" /> <!-- if False, then camera will operate in free-run mode; otherwise, frames need to be triggered by hardware signal (falling-edge) on digital input pin of camera -->
@@ -72,7 +73,7 @@
     <param name="frame_name" type="str" value="CAMERA_HEAD_L" />
     <param name="camera_topic" type="str" value="image_raw" />
     <param name="camera_id" type="int" value="2" /> <!-- 0 = any camera; 1+: camera ID -->
-    <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/left.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
+    <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/stereo/left.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
     <param name="camera_parameters_file" type="string" value="$(find nextage_camera)/camera_conf/UI155xSE-C.ini" /> <!-- default: ~/.ros/camera_conf/<camera_name>.ini -->
 
     <param name="ext_trigger_mode" type="bool" value="False" /> <!-- if False, then camera will operate in free-run mode; otherwise, frames need to be triggered by hardware signal (falling-edge) on digital input pin of camera -->
