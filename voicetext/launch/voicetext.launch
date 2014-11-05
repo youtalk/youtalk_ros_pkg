@@ -2,10 +2,20 @@
 <launch>
   <arg name="user_name" default="" />
   <arg name="speaker" default="hikari" />
+  <arg name="emotion" default="" />
+  <arg name="emotion_level" default="1" />
+  <arg name="pitch" default="100" />
+  <arg name="speed" default="100" />
+  <arg name="volume" default="100" />
 
   <node name="voicetext" pkg="voicetext" type="voicetext"
         respawn="false" output="screen">
     <param name="user_name" type="string" value="$(arg user_name)"/>
     <param name="speaker" type="string" value="$(arg speaker)"/>
+    <param name="emotion" type="string" value="$(arg emotion)"/>
+    <param name="emotion_level" type="int" value="$(arg emotion_level)"/>
+    <param name="pitch" type="int" value="$(arg pitch)"/>
+    <param name="speed" type="int" value="$(arg speed)"/>
+    <param name="volume" type="int" value="$(arg volume)"/>
   </node>
 </launch>

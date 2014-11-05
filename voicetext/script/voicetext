@@ -16,7 +16,14 @@ if __name__ == '__main__':
     user_name = rospy.get_param('~user_name')
     password = rospy.get_param('~password', '')
     speaker = rospy.get_param('~speaker', 'hikari')
+    emotion = rospy.get_param('~emotion', '')
+    emotion_level = rospy.get_param('~emotion_level', 1)
+    pitch = rospy.get_param('~pitch', 100)
+    speed = rospy.get_param('~speed', 100)
+    volume = rospy.get_param('~volume', 100)
 
     vt = VoiceText(user_name=user_name, password=password, speaker=speaker)
+    vt.emotion(emotion, emotion_level).pitch(pitch).speed(speed).volume(volume)
+
     rospy.Subscriber("speech", String, callback)
     rospy.spin()
