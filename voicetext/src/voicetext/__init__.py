@@ -43,9 +43,9 @@ class VoiceText(object):
         """
         if speaker in ['show', 'haruka', 'hikari', 'takeru']:
             self._data['speaker'] = speaker
-            rospy.loginfo('Speaker = %s' % speaker)
+            rospy.loginfo('Speaker = %s', speaker)
         else:
-            rospy.logwarn('Unknown speaker: %s' % str(speaker))
+            rospy.logwarn('Unknown speaker: %s', speaker)
 
         return self
 
@@ -62,9 +62,9 @@ class VoiceText(object):
             self._data['emotion'] = emotion
             if isinstance(level, int) and 1 <= level <= 2:
                 self._data['emotion_level'] = level
-                rospy.loginfo('Emotion = %s, Level = %d' % (emotion, level))
+                rospy.loginfo('Emotion = %s, Level = %d', emotion, level)
         else:
-            rospy.logwarn('Unknown emotion: %s' % str(emotion))
+            rospy.logwarn('Unknown emotion: %s', emotion)
 
         return self
 
@@ -81,7 +81,7 @@ class VoiceText(object):
             elif 200 < pitch:
                 pitch = 200
             self._data['pitch'] = pitch
-            rospy.loginfo('Pitch = %s' % pitch)
+            rospy.loginfo('Pitch = %s', pitch)
 
         return self
 
@@ -98,7 +98,7 @@ class VoiceText(object):
             elif 400 < speed:
                 speed = 400
             self._data['speed'] = speed
-            rospy.loginfo('Speed = %s' % speed)
+            rospy.loginfo('Speed = %s', speed)
 
         return self
 
@@ -115,7 +115,7 @@ class VoiceText(object):
             elif 200 < volume:
                 volume = 200
             self._data['Volume'] = volume
-            rospy.loginfo('Volume = %s' % volume)
+            rospy.loginfo('Volume = %s', volume)
 
         return self
 
@@ -127,12 +127,12 @@ class VoiceText(object):
         :return: bytearray
         """
         self._data['text'] = text
-        rospy.logdebug('Post = %s' % str(self._data))
+        rospy.logdebug('Post = %s', str(self._data))
         request = requests.post(self.URL, self._data, auth=self._auth)
-        rospy.logdebug('Status = %d' % request.status_code)
+        rospy.logdebug('Status = %d', request.status_code)
         if request.status_code != requests.codes.ok:
-            rospy.logerr('Invalid status code: %d' % request.status_code)
-            raise Exception('Invalid status code: %d' % request.status_code)
+            rospy.logerr('Invalid status code: %d', request.status_code)
+            raise Exception('Invalid status code: %d', request.status_code)
         return request.content
 
     def speak(self, text):
