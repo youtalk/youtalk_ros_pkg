@@ -5,7 +5,6 @@ project(nextage_camera)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  rtmros_nextage
   tf
   ueye_cam
 )
@@ -82,7 +81,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES nextage_camera
-#  CATKIN_DEPENDS rtmros_nextage tf ueye_cam
+#  CATKIN_DEPENDS tf ueye_cam
 #  DEPENDS system_lib
 )
 
