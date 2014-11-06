@@ -265,7 +265,7 @@ Visualization Manager:
     - Class: rviz/Camera
       Enabled: true
       Image Rendering: background and overlay
-      Image Topic: /left/image_mono
+      Image Topic: /stereo/left/image_rect
       Name: LeftCamera
       Overlay Alpha: 0.5
       Queue Size: 2
@@ -281,7 +281,7 @@ Visualization Manager:
     - Class: rviz/Camera
       Enabled: true
       Image Rendering: background and overlay
-      Image Topic: /right/image_mono
+      Image Topic: /stereo/right/image_rect
       Name: RightCamera
       Overlay Alpha: 0.5
       Queue Size: 2
@@ -318,22 +318,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.33787
+      Distance: 1.43461
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0733833
-        Y: -0.130872
-        Z: 0.309584
+        X: -0.0981017
+        Y: -0.0651231
+        Z: 0.279787
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.279798
+      Pitch: 0.349798
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.650403
+      Yaw: 0.665403
     Saved: ~
 Window Geometry:
   Displays:
@@ -355,5 +355,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 174
-  Y: 56
+  X: 315
+  Y: 53
