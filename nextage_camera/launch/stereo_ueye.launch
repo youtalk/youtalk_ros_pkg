@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <!--
   see http://wiki.ros.org/rtmros_nextage/Tutorials/Setup%20stereo%20camera for tutorial
@@ -19,7 +20,7 @@
     <param name="frame_name" type="str" value="CAMERA_HEAD_R" />
     <param name="camera_topic" type="str" value="image_raw" />
     <param name="camera_id" type="int" value="1" /> <!-- 0 = any camera; 1+: camera ID -->
-    <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/right.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
+    <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/stereo/right.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
     <param name="camera_parameters_file" type="string" value="$(find nextage_camera)/camera_conf/UI155xSE-C.ini" /> <!-- default: ~/.ros/camera_conf/<camera_name>.ini -->
 
     <param name="ext_trigger_mode" type="bool" value="False" /> <!-- if False, then camera will operate in free-run mode; otherwise, frames need to be triggered by hardware signal (falling-edge) on digital input pin of camera -->
@@ -72,7 +73,7 @@
     <param name="frame_name" type="str" value="CAMERA_HEAD_L" />
     <param name="camera_topic" type="str" value="image_raw" />
     <param name="camera_id" type="int" value="2" /> <!-- 0 = any camera; 1+: camera ID -->
-    <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/left.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
+    <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/stereo/left.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
     <param name="camera_parameters_file" type="string" value="$(find nextage_camera)/camera_conf/UI155xSE-C.ini" /> <!-- default: ~/.ros/camera_conf/<camera_name>.ini -->
 
     <param name="ext_trigger_mode" type="bool" value="False" /> <!-- if False, then camera will operate in free-run mode; otherwise, frames need to be triggered by hardware signal (falling-edge) on digital input pin of camera -->
@@ -133,10 +134,7 @@
   <node pkg="stereo_image_proc" type="stereo_image_proc"
         name="stereo_image_proc" args="_approximate_sync:=True" />
 
-  <!-- this is not confirmed -->
-  <node pkg="tf" type="static_transform_publisher" name="head_link_to_stereo_link"
-    args="0.07 0.06 0.09 0 0.3 0 /HEAD_JOINT1_Link /stereo_link 100" />
-  <node pkg="tf" type="static_transform_publisher" name="stereo_link_to_stereo_frame"
-    args="0 0 0 1.57 3.14 1.57 /stereo_link /stereo_frame 100" />
+  <node pkg="tf" type="static_transform_publisher" name="head_link_to_stereo_frame"
+    args="0 0 0 1.57079 3.14159 1.57079 /CAMERA_HEAD_L /stereo_frame 100" />
 
 </launch>
