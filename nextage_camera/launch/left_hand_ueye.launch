@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="LARM_JOINT5_Link_to_CAMERA_HAND_L"
+    args="-0.03 0.005 -0.08 -1.57079 0 1.57079 /LARM_JOINT5_Link /CAMERA_HAND_L 100" />
+</launch>

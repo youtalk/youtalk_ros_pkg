@@ -21,7 +21,7 @@
     <param name="camera_topic" type="str" value="image_raw" />
     <param name="camera_id" type="int" value="1" /> <!-- 0 = any camera; 1+: camera ID -->
     <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/stereo/right.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
-    <param name="camera_parameters_file" type="string" value="$(find nextage_camera)/camera_conf/UI155xSE-C.ini" /> <!-- default: ~/.ros/camera_conf/<camera_name>.ini -->
+    <param name="camera_parameters_file" type="string" value="$(find nextage_camera)/camera_conf/UI155xSE-C_conf.ini" /> <!-- default: ~/.ros/camera_conf/<camera_name>.ini -->
 
     <param name="ext_trigger_mode" type="bool" value="False" /> <!-- if False, then camera will operate in free-run mode; otherwise, frames need to be triggered by hardware signal (falling-edge) on digital input pin of camera -->
 
@@ -74,7 +74,7 @@
     <param name="camera_topic" type="str" value="image_raw" />
     <param name="camera_id" type="int" value="2" /> <!-- 0 = any camera; 1+: camera ID -->
     <param name="camera_intrinsics_file" type="string" value="$(find nextage_camera)/camera_info/stereo/left.yaml" /> <!-- default: ~/.ros/camera_info/<camera_name>.yaml -->
-    <param name="camera_parameters_file" type="string" value="$(find nextage_camera)/camera_conf/UI155xSE-C.ini" /> <!-- default: ~/.ros/camera_conf/<camera_name>.ini -->
+    <param name="camera_parameters_file" type="string" value="$(find nextage_camera)/camera_conf/UI155xSE-C_conf.ini" /> <!-- default: ~/.ros/camera_conf/<camera_name>.ini -->
 
     <param name="ext_trigger_mode" type="bool" value="False" /> <!-- if False, then camera will operate in free-run mode; otherwise, frames need to be triggered by hardware signal (falling-edge) on digital input pin of camera -->
 
@@ -133,8 +133,4 @@
   <node pkg="image_proc" type="image_proc" name="image_proc" ns="left"/>
   <node pkg="stereo_image_proc" type="stereo_image_proc"
         name="stereo_image_proc" args="_approximate_sync:=True" />
-
-  <node pkg="tf" type="static_transform_publisher" name="head_link_to_stereo_frame"
-    args="0 0 0 1.57079 3.14159 1.57079 /CAMERA_HEAD_L /stereo_frame 100" />
-
 </launch>
