@@ -134,7 +134,4 @@
   <node pkg="stereo_image_proc" type="stereo_image_proc"
         name="stereo_image_proc" args="_approximate_sync:=True" />
 
-  <node pkg="tf" type="static_transform_publisher" name="CAMERA_HEAD_L_to_stereo_frame"
-    args="0 0 0 1.57079 3.14159 1.57079 /CAMERA_HEAD_L /stereo_frame 100" />
-
 </launch>
