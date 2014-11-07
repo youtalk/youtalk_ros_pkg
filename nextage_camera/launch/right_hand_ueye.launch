@@ -64,5 +64,4 @@
   <node pkg="rostopic" type="rostopic" name="right_force_subscribe" args="hz right/camera_info" output="screen"/>
 
   <node pkg="image_proc" type="image_proc" name="image_proc" ns="right"/>
-
 </launch>

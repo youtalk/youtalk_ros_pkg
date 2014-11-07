@@ -133,5 +133,4 @@
   <node pkg="image_proc" type="image_proc" name="image_proc" ns="left"/>
   <node pkg="stereo_image_proc" type="stereo_image_proc"
         name="stereo_image_proc" args="_approximate_sync:=True" />
-
 </launch>
