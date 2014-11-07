@@ -273,6 +273,7 @@ Visualization Manager:
       Value: true
       Visibility:
         Grid: true
+        PointCloud2: true
         RightCamera: true
         RobotModel: true
         TF: true
@@ -290,10 +291,40 @@ Visualization Manager:
       Visibility:
         Grid: true
         LeftCamera: true
+        PointCloud2: true
         RobotModel: true
         TF: true
         Value: true
       Zoom Factor: 1
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Flat Squares
+      Topic: /stereo/points2
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -318,22 +349,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.43461
+      Distance: 0.764574
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0981017
-        Y: -0.0651231
-        Z: 0.279787
+        X: -0.00211552
+        Y: -0.284202
+        Z: 0.649549
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.349798
+      Pitch: 0.579798
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.665403
+      Yaw: 1.86042
     Saved: ~
 Window Geometry:
   Displays:
@@ -355,5 +386,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 315
+  X: 308
   Y: 53
