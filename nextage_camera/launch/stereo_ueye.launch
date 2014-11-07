@@ -120,8 +120,8 @@
   </node>
 
   <!-- force subscribe image raw to publish data -->
-  <node pkg="rostopic" type="rostopic" name="left_force_subscribe" args="hz /left/camera_info" output="screen" />
-  <node pkg="rostopic" type="rostopic" name="right_force_subscribe" args="hz /right/camera_info" output="screen"/>
+  <node pkg="rostopic" type="rostopic" name="left_force_subscribe" args="hz left/camera_info" output="screen" />
+  <node pkg="rostopic" type="rostopic" name="right_force_subscribe" args="hz right/camera_info" output="screen"/>
 
   <!-- nodelet version of stereo_image_proc wont work???
   <include file='$(find stereo_image_proc)/launch/stereo_image_proc.launch' >
