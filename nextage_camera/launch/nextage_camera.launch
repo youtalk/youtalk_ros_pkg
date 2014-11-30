@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find nextage_camera)/launch/stereo_ueye.launch"
+             ns="stereo"/>
+
+    <include file="$(find nextage_camera)/launch/left_hand_ueye.launch"
+             ns="hand"/>
+
+    <include file="$(find nextage_camera)/launch/right_hand_ueye.launch"
+             ns="hand"/>
+</launch>
