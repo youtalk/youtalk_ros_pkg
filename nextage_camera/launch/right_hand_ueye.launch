@@ -7,7 +7,7 @@
 
   <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" output="screen" />
 
-  <node pkg="nodelet" type="nodelet" name="ueye_cam_nodelet_master"
+  <node pkg="nodelet" type="nodelet" name="ueye_cam_nodelet_slave3"
         args="load ueye_cam/ueye_cam_nodelet nodelet_manager">
     <param name="camera_name" type="str" value="right" /> <!-- == namespace for topics and services -->
     <param name="frame_name" type="str" value="CAMERA_HAND_R" />
